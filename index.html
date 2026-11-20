@@ -96,6 +96,44 @@
   .tools span { color: var(--muted); }
   .more { font-weight: 600; color: var(--accent); text-underline-offset: .2em; }
 
+  /* Featured project */
+  .featured { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: clamp(1rem, 2.5vw, 1.5rem); margin-bottom: clamp(2.5rem, 6vw, 4rem); }
+  .featured .shot { margin: 0; aspect-ratio: 4 / 3; border-radius: 16px; }
+  .featured-body { padding: .5rem clamp(0rem, 2vw, 1rem) .5rem 0; }
+  .eyebrow-tag { display: inline-block; font-size: .8125rem; font-weight: 700; padding: .25rem .8rem; border-radius: 999px; background: var(--accent); color: var(--surface); margin-right: .4rem; }
+  .featured h3 { font: 800 clamp(1.75rem, 3.4vw, 2.4rem)/1.1 var(--display); letter-spacing: -0.02em; margin: .9rem 0 .5rem; }
+  .featured .when { color: var(--muted); margin: 0 0 1rem; }
+  .featured p { margin: 0 0 1.25rem; max-width: 52ch; }
+  .specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin: 0 0 1.5rem; }
+  .specs div { background: var(--paper); border-radius: 12px; padding: .7rem .85rem; }
+  .specs dt { font-size: .8125rem; color: var(--muted); }
+  .specs dd { margin: 0; font: 700 1.15rem/1.2 var(--display); }
+  .btn-primary { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; text-decoration: none; color: var(--surface); background: var(--accent); padding: .75rem 1.2rem; border-radius: 999px; transition: transform .15s ease; }
+  .btn-primary:hover { transform: translateY(-2px); }
+
+  /* Speaker build page */
+  .back { display: inline-flex; gap: .4rem; font-weight: 600; color: var(--accent); text-decoration: none; margin-bottom: 1.25rem; }
+  .build-hero { border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 9; background: var(--accent-soft); display: grid; place-items: center; color: var(--muted); margin-bottom: 2.5rem; }
+  .build-hero img { width: 100%; height: 100%; object-fit: cover; }
+  .build-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  .build-grid h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); margin: 0 0 .75rem; }
+  .build-grid section { padding: 0; border: 0; margin-bottom: 2.25rem; }
+  .build-grid p { margin: 0 0 1rem; max-width: 64ch; }
+  .build-grid ul { margin: 0 0 1rem; padding-left: 1.1rem; }
+  .build-grid li { margin-bottom: .45rem; }
+  .spec-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.5rem; position: sticky; top: 1.5rem; }
+  .spec-card h3 { font: 700 1.15rem/1.3 var(--display); margin: 0 0 1rem; }
+  .spec-card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .55rem 1.25rem; }
+  .spec-card dt { color: var(--muted); }
+  .spec-card dd { margin: 0; font-weight: 600; }
+  .parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+  .parts figure { margin: 0; }
+  .parts .shot { margin-bottom: .6rem; }
+  .parts figcaption { font-size: .9375rem; color: var(--muted); }
+  .parts figcaption b { display: block; color: var(--ink); font-family: var(--display); font-size: 1.05rem; }
+  @media (max-width: 900px) { .featured, .build-grid { grid-template-columns: 1fr; } .spec-card { position: static; } }
+  @media (max-width: 640px) { .specs { grid-template-columns: 1fr 1fr; } .parts { grid-template-columns: 1fr; } }
+
   /* Experience & education */
   .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
   .entry h3 { font: 700 1.3rem/1.25 var(--display); margin: 0 0 .25rem; }
@@ -239,7 +277,7 @@
       <!-- EDIT: put your photo next to this file, then replace the line below with
            <div class="portrait"><img src="me.jpg" alt="Jonah Wolk"></div> -->
       <!-- <div class="portrait">[FACE GOES HERE]</div> -->
-      <div class="portrait"><img src="megtr.png" alt="Jonah Wolk" style="transform: scale(1.15)";></div>
+      <div class="portrait"><img src="megtr.png" alt="Jonah Wolk" style="transform: scale(1.15);"></div>
       <h1>Hi, I’m Jonah!</h1>
       <p class="lede">I’m a mechanical engineering student at Northeastern ('28) who loves building things, especially things that make sound. As of lately, that means custom loudspeakers, 3D-printed mechanisms, and a terrarium that self-regulates.</p>
       <dl class="facts">
@@ -262,6 +300,24 @@
         </div>
       </div>
 
+      <!-- ===== FEATURED PROJECT ===== -->
+      <article class="featured">
+        <!-- EDIT: put a photo of the finished speaker next to this file and name it speaker-final.jpg -->
+        <div class="shot"><img src="speaker-final.jpg" alt="The finished sealed loudspeaker enclosure"></div>
+        <div class="featured-body">
+          <span class="eyebrow-tag">Featured</span><span class="tag status">Complete</span>
+          <h3>Sealed loudspeaker enclosure</h3>
+          <p class="when">October to November 2026</p>
+          <p>A simulation-first loudspeaker build: I modeled the driver as an electrical circuit, designed the enclosure from the results, then built it to compare predicted performance against the real thing.</p>
+          <dl class="specs">
+            <div><dt>Volume</dt><dd>6 L</dd></div>
+            <div><dt>Alignment</dt><dd>Qtc 0.8</dd></div>
+            <div><dt>Material</dt><dd>MDF</dd></div>
+          </dl>
+          <a class="btn-primary" href="#speaker-build">See the full build →</a>
+        </div>
+      </article>
+
       <div class="projects">
         <!--
           PROJECT TEMPLATE: copy a whole <article> block to add one.
@@ -272,20 +328,6 @@
           To link a report: put the PDF next to this file and set the href on the "Read the report" link.
         -->
 
-        <article class="project" data-cat="mech audio">
-          <div class="shot"><img src="impvfrq.png" alt="Simulated impedance and frequency response of my sealed enclosure" style="object-fit: cover; background: #fff;"></div>
-          <div class="tags"><span class="tag">Audio</span><span class="tag">Mechanical</span><span class="tag status">In progress</span></div>
-          <h3>Sealed loudspeaker enclosure</h3>
-          <p class="when">October 2026 to present</p>
-          <p>A simulation-first loudspeaker build, comparing predicted performance against the finished enclosure.</p>
-          <ul>
-            <li>Modeled the driver as an equivalent electrical circuit in LTspice from datasheet Thiele-Small parameters.</li>
-            <li>Ran AC analysis and parametric volume sweeps to predict impedance and system resonance.</li>
-            <li>Designed a 6 L MDF enclosure (Qtc = 0.8) from the simulated volume; fabrication is underway to compare physical and simulation variables.</li>
-          </ul>
-          <p class="tools"><span>Tools:</span> LTspice, MDF fabrication</p>
-        <!--  <a class="more" href="#">Read the report</a> -->
-        </article>
 
         <article class="project" data-cat="mech">
           <div class="shot"><img src="humidifier_rotate.gif" alt="Rotating 3D view of the terrarium humidifier parts" loading="lazy"></div>
@@ -376,6 +418,86 @@
       </ul>
     </div>
   </section>
+</div>
+
+<!-- ============ SPEAKER BUILD (in-depth) ============ -->
+<div class="panel" id="panel-speaker" data-tab="speaker-build" hidden>
+  <div class="wrap page-head">
+    <a class="back" href="#work">← Back to projects</a>
+    <h1>Sealed loudspeaker enclosure</h1>
+    <p>From an equivalent-circuit model in LTspice to a finished 6 L enclosure, and how the real build compared to the simulation.</p>
+  </div>
+
+  <div class="wrap">
+    <!-- EDIT: the same finished photo, or a different wide shot -->
+    <div class="build-hero"><img src="speaker-final.jpg" alt="The finished sealed loudspeaker enclosure"></div>
+
+    <div class="build-grid">
+      <div>
+        <section>
+          <h2>The goal</h2>
+          <p>I wanted to design a speaker the way an engineer would: predict how it should perform before cutting anything, then build it and see how close the prediction came.</p>
+        </section>
+
+        <section>
+          <h2>Design and simulation</h2>
+          <ul>
+            <li>Modeled the driver as an equivalent electrical circuit in LTspice, converting datasheet Thiele-Small parameters (cone mass, suspension compliance, and losses) into circuit components.</li>
+            <li>Ran AC analysis and parametric volume sweeps to predict impedance and system resonance.</li>
+            <li>Chose a 6 L sealed enclosure for a Qtc of 0.8, a balance between tight, controlled bass and good low-frequency extension.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Build</h2>
+          <!-- EDIT: describe how you built it: panel thickness, joints, glue-up, sealing, damping, finish -->
+          <p>[Describe the build: how you cut and joined the MDF panels, how you sealed the box airtight, any bracing or damping material, and the finish.]</p>
+        </section>
+
+        <section>
+          <h2>Results</h2>
+          <!-- EDIT: compare your measured numbers to the simulation -->
+          <p>[Compare the measured results to the simulation, for example the predicted vs. measured resonance frequency and impedance peak, and what explains any difference.]</p>
+        </section>
+
+        <section>
+          <h2>Up close</h2>
+          <!-- EDIT: put four photos next to this file with these names, or change the src names below -->
+          <div class="parts">
+            <figure>
+              <div class="shot"><img src="speaker-part-1.jpg" alt="Speaker detail 1"></div>
+              <figcaption><b>The driver</b>[Caption: what this shows]</figcaption>
+            </figure>
+            <figure>
+              <div class="shot"><img src="speaker-part-2.jpg" alt="Speaker detail 2"></div>
+              <figcaption><b>Front baffle</b>[Caption: what this shows]</figcaption>
+            </figure>
+            <figure>
+              <div class="shot"><img src="speaker-part-3.jpg" alt="Speaker detail 3"></div>
+              <figcaption><b>Inside the enclosure</b>[Caption: what this shows]</figcaption>
+            </figure>
+            <figure>
+              <div class="shot"><img src="speaker-part-4.jpg" alt="Speaker detail 4"></div>
+              <figcaption><b>Simulation vs. measured</b>[Caption: what this shows]</figcaption>
+            </figure>
+          </div>
+        </section>
+      </div>
+
+      <aside class="spec-card">
+        <h3>Specs</h3>
+        <dl>
+          <dt>Type</dt><dd>Sealed (acoustic suspension)</dd>
+          <dt>Internal volume</dt><dd>6 L</dd>
+          <dt>Target Qtc</dt><dd>0.8</dd>
+          <dt>Material</dt><dd>MDF</dd>
+          <dt>Driver</dt><dd>[Driver model]</dd>
+          <dt>Tools</dt><dd>LTspice, MDF fabrication</dd>
+          <dt>Timeline</dt><dd>Oct to Nov 2026</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
 </div>
 
 <!-- ============ EXPERIENCE TAB ============ -->
@@ -530,8 +652,8 @@ document.getElementById("year").textContent = new Date().getFullYear();
 /* Tabs */
 const panels = [...document.querySelectorAll(".panel")];
 const navLinks = [...document.querySelectorAll("nav a[href^='#']")];
-function route() {
-  const id = (location.hash || "#home").slice(1);
+function route(forced) {
+  const id = forced || (location.hash || "#home").slice(1);
   let panel = panels.find(p => p.dataset.tab === id);
   let target = null;
   if (!panel) {
@@ -545,7 +667,16 @@ function route() {
   });
   if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
 }
-window.addEventListener("hashchange", route);
+window.addEventListener("hashchange", () => route());
+window.addEventListener("popstate", () => route());
+/* switch sections on click, so links work even where the address can't change */
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+  const id = a.getAttribute("href").slice(1);
+  if (!id) return;
+  e.preventDefault();
+  route(id);
+  try { history.pushState(null, "", "#" + id); } catch (err) {}
+}));
 route();
 
 /* Project filter */
