@@ -401,7 +401,7 @@
     <div class="wrap">
       <h2 style="margin-bottom:2rem">A bit about me</h2>
       <!-- EDIT: make this sound like you -->
-      <p>I’m most interested in the places where mechanical design and sound meet: enclosures, amplifiers, and the physical systems behind good, replicatable audio. I like taking a project from simulation to something I can build, test, measure, and use.</p>
+      <p>I’m most interested in the places where mechanical design and sound meet, like enclosures, amplifiers, and the physical systems behind good, replicatable audio. I also enjoy taking a project from simulation to something I can build, test, measure, and use.</p>
       <p>Outside of class I play guitar, produce music, and spend time on the golf course, the tennis court, and in the kitchen. I’m currently looking for a co-op or internship where I can do hands-on design and testing work.</p>
     </div>
   </section>
@@ -430,13 +430,13 @@
 
   <div class="wrap">
     <!-- EDIT: the same finished photo, or a different wide shot -->
-    <div class="build-hero"><img src="speaker-final.jpg" alt="The finished sealed loudspeaker enclosure"></div>
+    <div class="build-hero"><img src="IMG_6022.jpeg" alt="The finished sealed loudspeaker enclosure"></div>
 
     <div class="build-grid">
       <div>
         <section>
           <h2>The goal</h2>
-          <p>I wanted to design a speaker the way an engineer would: predict how it should perform before cutting anything, then build it and see how close the prediction came.</p>
+          <p>I wanted to design a speaker the way an engineer in the field would: predict how it should perform before starting construction, then build it and see how close the prediction came.</p>
         </section>
 
         <section>
@@ -452,7 +452,7 @@
           <h2>Build</h2>
           <!-- EDIT: describe how you built it: panel thickness, joints, glue-up, sealing, damping, finish -->
           <p>
-  The enclosure was laser-cut from 1/4" plywood, with each panel cut twice
+  The primary enclosure was laser-cut from 1/4" plywood, with each panel cut twice
   and laminated with Titebond III into 1/2" walls, then assembled with butt
   joints into a sealed box of about 6.1 L internal volume.
 </p>
@@ -460,12 +460,12 @@
   The first five panels' inside seams were sealed with silicone, and the
   final side with wood-glue fillets applied through the driver opening; a
   light test confirmed no leaks. The driver seals with a foam gasket, the
-  cable holes with putty, and the backlit logo window with frosted acrylic
+  cable holes with putty or o-rings, and the backlit logo window with frosted acrylic
   bonded in with silicone.
 </p>
 <p>
   The box is unbraced and damped with about 2 oz of polyfill. The exterior
-  was sanded, edges lightly rounded, and vinyl wrapped.
+  was sanded, edges lightly rounded, and vinyl wrapped for aethetical value.
 </p>
 <p>
   Audio input: a male-to-male 3.5 mm aux cable was cut in half and rebuilt
@@ -476,8 +476,8 @@
 </p>
 <p>
   Power: the amp board has screw terminals rather than a barrel jack, so the
-  12 V 3 A adapter's DC plug was cut off, its polarity confirmed with a
-  multimeter, and its leads wired directly to the board's power terminals.
+  12 V 3 A adapter's DC plug was cut off, its polarity confirmed using a
+  multimeter, and its leads were wired directly to the board's power terminals.
 </p>
 <p>
   Lighting: the logo is backlit by two parallel strings of four red LEDs,
@@ -504,6 +504,13 @@
   internal electronics change the net volume; and the driver's real
   parameters vary from published values by normal manufacturing tolerances.
 </p>
+<p>
+  After measurement, there are still upgrades that I want to do: 
+  Currently, I'm designing a lazy-susan gear mechanism to allow easy and seamless pivot, 
+  along with a connecting bluetooth reciever module to the main body. In the far future, 
+  I want to try and create a tweeter & subwoofer attachment to allow for my project to display 
+  the full range of the frequency spectrum. 
+</p>
         </section>
 
         <section>
@@ -511,20 +518,20 @@
           <!-- EDIT: put four photos next to this file with these names, or change the src names below -->
           <div class="parts">
             <figure>
-              <div class="shot"><img src="speaker-part-1.jpg" alt="Speaker detail 1"></div>
-              <figcaption><b>The driver</b>[Caption: what this shows]</figcaption>
+              <div class="shot"><img src=IMG_6013.jpeg" alt="Speaker detail 1"></div>
+              <figcaption><b>Body During Construction</b>1/4" Plywood Panels were laser-cut bonded (2x T), Attached, and Sanded</figcaption>
             </figure>
             <figure>
-              <div class="shot"><img src="speaker-part-2.jpg" alt="Speaker detail 2"></div>
-              <figcaption><b>Front baffle</b>[Caption: what this shows]</figcaption>
+              <div class="shot"><img src="IMG_5983.jpeg" alt="Speaker detail 2"></div>
+              <figcaption><b>3.5mm Splice</b> Spliced the cable to convert a stereo signal (L & R) to purely summed mono signal. </figcaption>
             </figure>
             <figure>
-              <div class="shot"><img src="speaker-part-3.jpg" alt="Speaker detail 3"></div>
-              <figcaption><b>Inside the enclosure</b>[Caption: what this shows]</figcaption>
+              <div class="shot"><img src="IMG_5905.jpeg" alt="Speaker detail 3"></div>
+              <figcaption><b>Inside the enclosure</b>Early-stage attachment of Amp Board, aligned with exterior holes</figcaption>
             </figure>
             <figure>
-              <div class="shot"><img src="speaker-part-4.jpg" alt="Speaker detail 4"></div>
-              <figcaption><b>Simulation vs. measured</b>[Caption: what this shows]</figcaption>
+              <div class="shot"><img src="impvfrq.png" alt="Speaker detail 4"></div>
+              <figcaption><b>Simulation vs. measured</b>Still a work in progress! Waiting for materials to measure</figcaption>
             </figure>
           </div>
         </section>
@@ -537,8 +544,8 @@
           <dt>Internal volume</dt><dd>6 L</dd>
           <dt>Target Qtc</dt><dd>0.8</dd>
           <dt>Material</dt><dd>Plywood</dd>
-          <dt>Driver</dt><dd>[Driver model]</dd>
-          <dt>Tools</dt><dd>LTspice, Fabrication</dd>
+          <dt>Driver</dt><dd>Dayton Audio LW150-4 6"</dd>
+          <dt>Tools</dt><dd>LTspice, Fabrication, SolidWorks</dd>
           <dt>Timeline</dt><dd>Oct to Nov 2026</dd>
         </dl>
       </aside>
