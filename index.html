@@ -6,7 +6,7 @@
 <title>Jonah Wolk — Mechanical & Audio Engineering</title>
 <meta property="og:title" content="Jonah Wolk — Mechanical & Audio Engineering">
 <meta property="og:description" content="Mechanical engineering student at Northeastern 28' building speakers, amps, and things that move.">
-<meta property="og:image" content="https://jonahwolk.github.io/keychain_lock_rotate.gif">
+<meta property="og:image" content="https://jonahwolk.github.io/IMG_6022.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Jonah Wolk is a mechanical engineering student at Northeastern University working on mechanical design and audio engineering projects.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
@@ -143,6 +143,56 @@
   @media (max-width: 900px) { .featured, .build-grid { grid-template-columns: 1fr; } .spec-card { position: static; } }
   @media (max-width: 640px) { .specs { grid-template-columns: 1fr 1fr; } .parts { grid-template-columns: 1fr; } }
 
+  /* Hero headshot */
+  .headshot { margin: 0; justify-self: center; width: min(100%, 300px); }
+  .headshot .frame { aspect-ratio: 4 / 5; border-radius: 24px; overflow: hidden; background: var(--accent-soft); box-shadow: 0 24px 50px -30px rgba(0,0,0,.45); }
+  .headshot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+
+  /* Video with an obvious "tap for sound" control */
+  .vidwrap { position: relative; }
+  .vid-label { position: absolute; top: .6rem; left: .6rem; font-size: .75rem; font-weight: 700; padding: .2rem .6rem; border-radius: 999px; background: rgba(0,0,0,.6); color: #fff; pointer-events: none; }
+  .sound-btn { position: absolute; left: 50%; bottom: .8rem; translate: -50% 0; display: inline-flex; align-items: center; gap: .4rem; white-space: nowrap; font: 700 .875rem var(--body); color: #141B2D; background: #fff; border: 0; border-radius: 999px; padding: .55rem .9rem; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+  .sound-btn:hover { transform: translateY(-1px); }
+  .media-caption { font-size: .875rem; color: var(--muted); margin: .6rem 0 0; }
+
+  /* Zoomed-out photo on a blurred backdrop */
+  .shot.sim { position: relative; isolation: isolate; }
+  .shot.sim::before { content: ""; position: absolute; inset: -10%; background: var(--bg) center / cover; filter: blur(18px) saturate(1.1); opacity: .55; z-index: -1; }
+  .shot.sim img { width: 72%; height: auto; object-fit: contain; border-radius: 10px; box-shadow: 0 12px 30px -12px rgba(0,0,0,.45); }
+
+  /* Missing-photo placeholder (shows until you upload the image) */
+  .shot.empty { position: relative; }
+  .shot.empty img { display: none; }
+  .shot.empty::after { content: "Photo coming soon"; color: var(--muted); font-weight: 600; }
+  .shot video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Work visuals on the Experience page */
+  .line-card .thumb { aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; margin: -.2rem 0 .8rem; background: #fff; border: 1px solid var(--line); }
+  .line-card .thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .work-visuals { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 0 0 2rem; align-items: start; }
+  .work-visuals figure { margin: 0; }
+  .work-visuals .frame { aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid var(--line); }
+  .work-visuals img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .work-visuals figcaption { font-size: .875rem; color: var(--muted); margin-top: .5rem; }
+  @media (max-width: 640px) { .work-visuals { grid-template-columns: 1fr; } }
+
+  /* Collapsible slide deck */
+  .deck-details { border: 1px solid var(--line); border-radius: 18px; background: var(--surface); padding: 1rem 1.25rem; }
+  .deck-details summary { cursor: pointer; font: 700 1.05rem/1.4 var(--display); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .deck-details summary::-webkit-details-marker { display: none; }
+  .deck-details summary::after { content: "Show"; font: 600 .875rem var(--body); color: var(--accent); }
+  .deck-details[open] summary::after { content: "Hide"; }
+  .deck-details[open] summary { margin-bottom: 1rem; }
+
+  /* Skills, all visible at once */
+  .skill-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding-bottom: clamp(3rem, 8vw, 5.5rem); }
+  .skill-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.25rem 1.35rem; }
+  .skill-card h2 { font-size: 1.2rem; margin: 0 0 .25rem; }
+  .skill-card p { color: var(--muted); font-size: .9375rem; margin: 0 0 1rem; }
+  .skill-card .chips li { background: var(--paper); border-color: transparent; }
+  @media (max-width: 900px) { .skill-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .skill-grid { grid-template-columns: 1fr; } }
+
   /* Experience & education */
   .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; }
   .entry h3 { font: 700 1.3rem/1.25 var(--display); margin: 0 0 .25rem; }
@@ -190,6 +240,7 @@
   .job li { margin-bottom: .5rem; }
   h3.small { font: 700 1.125rem/1.3 var(--display); margin: 0 0 1rem; }
   .lines { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+  .more-roles .line-card { background: var(--surface); border: 1px solid var(--line); }
   .line-card { border-radius: 14px; background: var(--paper); padding: 1.1rem 1.25rem; }
   .line-card h4 { font: 700 1.05rem/1.3 var(--display); margin: 0 0 .15rem; }
   .line-card .spec { color: var(--accent); font-weight: 700; font-size: .875rem; margin: 0 0 .5rem; }
@@ -211,8 +262,8 @@
   .nav-btn:hover { scale: 1.06; }
   .nav-btn.prev { left: 14px; } .nav-btn.next { right: 14px; }
   .nav-btn:disabled { opacity: 0 !important; pointer-events: none; }
-  .stage:hover .nav-btn, .stage:focus-within .nav-btn { opacity: 1; }
-  @media (hover: none) { .nav-btn { opacity: .9; width: 40px; height: 40px; } }
+  .nav-btn { opacity: .95 !important; }
+  @media (hover: none) { .nav-btn { width: 40px; height: 40px; } }
   .bar { display: flex; align-items: center; gap: 1rem; margin-top: .9rem; flex-wrap: wrap; }
   .count { font: 700 .9375rem var(--display); font-variant-numeric: tabular-nums; }
   .slide-title { color: var(--muted); flex: 1; min-width: 10rem; }
@@ -286,17 +337,17 @@
       <!-- EDIT: put your photo next to this file, then replace the line below with
            <div class="portrait"><img src="me.jpg" alt="Jonah Wolk"></div> -->
       <!-- <div class="portrait">[FACE GOES HERE]</div> -->
-      <div class="portrait"><img src="megtr.png" alt="Jonah Wolk" style="transform: scale(1.15);"></div>
       <h1>Hi, I’m Jonah!</h1>
       <p class="lede">I’m a mechanical engineering student at Northeastern ('28) who loves building things, especially things that make sound. As of lately, that means custom loudspeakers, 3D-printed mechanisms, and a terrarium that self-regulates.</p>
       <dl class="facts">
         <div><dt>Degree</dt><dd>B.S. Mechanical Eng.</dd></div>
         <div><dt>Graduating</dt><dd>May 2028</dd></div>
-        <div><dt>GPA</dt><dd>3.7</dd></div>
+        <div><dt>Based in</dt><dd>Boston, MA</dd></div>
       </dl>
     </div>
-    <figure class="plot">
-<div class="frame" style="aspect-ratio: 5 / 6;"><img src="IMG_4295.JPG" alt="Hiking in Acadia National Park" style="object-fit: cover; object-position: 50% 80%;"></div>  </figure>
+    <figure class="headshot">
+      <div class="frame"><img src="jonah-headshot.jpg" alt="Jonah Wolk"></div>
+    </figure>
   </div>
   <section id="work">
     <div class="wrap">
@@ -313,8 +364,12 @@
       <article class="featured">
         <!-- photo on the left, vertical demo video on the right -->
         <div class="featured-media">
-          <div class="shot"><img src="IMG_6022.jpeg" alt="The finished sealed loudspeaker enclosure" style="object-position: 50% 90%;"></div>
-          <div class="shot vid"><video src="speaker-demo.mp4" poster="speaker-demo-poster.jpg" controls playsinline preload="metadata"></video></div>
+          <div class="shot"><img src="speaker-hero.jpg" alt="The finished sealed loudspeaker enclosure" style="object-position: 50% 55%;"></div>
+          <div class="shot vid vidwrap">
+            <video id="demoVid" src="speaker-demo.mp4" poster="speaker-demo-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+            <span class="vid-label">Live demo</span>
+            <button class="sound-btn" id="soundBtn" type="button">🔊 Tap to hear it</button>
+          </div>
         </div>
         <div class="featured-body">
           <span class="eyebrow-tag">Featured</span><span class="tag status">Complete</span>
@@ -326,7 +381,8 @@
             <div><dt>Alignment</dt><dd>Qtc 0.8</dd></div>
             <div><dt>Material</dt><dd>Plywood</dd></div>
           </dl>
-          <a class="btn-primary" href="#speaker-build">See the full build →</a>
+          <p class="media-caption">The video shows the finished speaker playing music. Tap “Tap to hear it” for sound.</p>
+          <a class="btn-primary" href="#speaker-build" style="margin-top:1rem">See the full build →</a>
         </div>
       </article>
 
@@ -370,6 +426,21 @@
           <p class="tools"><span>Tools:</span> SolidWorks, Cura, 3D printing</p>
         </article>
 
+        <article class="project" data-cat="mech">
+          <!-- shown smaller on a soft blurred backdrop so the low-res photo looks sharp -->
+          <div class="shot sim" style="--bg: url('energy-sim.jpg');"><img src="energy-sim.jpg" alt="The interactive hydroelectric energy simulator with three interchangeable turbine wheels" loading="lazy"></div>
+          <div class="tags"><span class="tag">Mechanical</span></div>
+          <h3>Interactive energy simulator</h3>
+          <p class="when">February to April 2025, Cornerstone of Engineering at Northeastern</p>
+          <p>A hands-on waterwheel exhibit that shows elementary students how mechanical energy becomes electrical energy.</p>
+          <ul>
+            <li>Designed and built the exhibit, turning fluid dynamics and energy transfer into something kids can see and play with.</li>
+            <li>A color sensor reads the wheel’s RPM and lights an LED array to show the power produced.</li>
+            <li>Three interchangeable 3D-printed wheel designs let students compare which performs best, teaching design optimization.</li>
+          </ul>
+          <p class="tools"><span>Tools:</span> SolidWorks, MATLAB, AutoCAD, 3D printing</p>
+        </article>
+
         <article class="project" data-cat="audio">
           <div class="shot"><img src="IMG_3664.jpeg" alt="Jonah & band"></div>
           <div class="tags"><span class="tag">Audio</span><span class="tag status">Ongoing</span></div>
@@ -383,7 +454,7 @@
           <p class="tools"><span>Tools:</span> Logic Pro X, EQ, Compression</p>
         </article>
 
-                <article class="project" data-cat="audio">
+        <article class="project" data-cat="audio">
           <div class="tags"><span class="tag">Audio</span></div>
           <h3>Fender Power Chorus amplifier restoration</h3>
           <p class="when">February to March 2026</p>
@@ -399,8 +470,9 @@
           <div class="tags"><span class="tag">Mechanical</span><span class="tag">Award</span></div>
           <h3>All-terrain delivery robot</h3>
           <p class="when">August 2023 to April 2024</p>
-          <p>As co-leader and development head on a Project Lead the Way team, led the design of a working delivery robot built to cross rough terrain.</p>
+          <p>As co-leader and development head on a Project Lead the Way team, I led the design of a working robot that helps teachers with deliveries, built to climb stairs and handle uneven ground.</p>
           <ul>
+            <li>Designed interlocking 3D-printed parts and mechanisms in Fusion 360.</li>
             <li>Won the Best Prototype Award at the 2024 PLTW Regional Innovative Solutions Competition.</li>
           </ul>
           <p class="tools"><span>Tools:</span> Fusion360, Cura, 3D printing</p>
@@ -414,7 +486,7 @@
       <h2 style="margin-bottom:2rem">A bit about me</h2>
       <!-- EDIT: make this sound like you -->
       <p>I’m most interested in the places where mechanical design and sound meet, like enclosures, amplifiers, and the physical systems behind good, replicatable audio. I also enjoy taking a project from simulation to something I can build, test, measure, and use.</p>
-      <p>Outside of class I play guitar, produce music, and spend time on the golf course, the tennis court, and in the kitchen. I’m currently looking for a co-op or internship where I can do hands-on design and testing work.</p>
+      <p>Outside of class I play guitar, produce music, and spend time on the golf course, the tennis court, the ultimate frisbee field, and in the kitchen, and I love a good backpacking trip. I’m currently looking for a co-op or internship where I can do hands-on design and testing work.</p>
     </div>
   </section>
 
@@ -442,7 +514,7 @@
 
   <div class="wrap">
     <!-- EDIT: the same finished photo, or a different wide shot -->
-    <div class="shot"><img src="IMG_6022.jpeg" alt="The finished sealed loudspeaker enclosure" style="object-position: 50% 90%;"></div>
+    <div class="shot" style="aspect-ratio: 16 / 9;"><img src="IMG_6022.jpeg" alt="The finished sealed loudspeaker enclosure" style="object-position: 55% 100%;"></div>
 
     <div class="build-grid">
       <div>
@@ -531,7 +603,7 @@
           <div class="parts">
             <figure>
               <div class="shot"><img src="IMG_6013.jpeg" alt="Speaker detail 1" style="object-position: 50% 100%;"></div>
-              <figcaption><b>Body During Construction</b>1/4" Plywood Panels were laser-cut, bonded (2x thickness), attached, and sanded</figcaption>
+              <figcaption><b>Body During Construction</b>1/4" Plywood Panels were laser-cut bonded (2x T), Attached, and Sanded</figcaption>
             </figure>
             <figure>
               <div class="shot"><img src="IMG_5983.jpeg" alt="Speaker detail 2" style="object-position: 50% 100%;"></div>
@@ -542,7 +614,7 @@
               <figcaption><b>Inside the enclosure</b>Early-stage attachment of Amp Board, aligned with exterior holes</figcaption>
             </figure>
             <figure>
-              <div class="shot graph"><img src="impvfrq.png" alt="Speaker detail 4"></div>
+              <div class="shot graph"><img src="impvfrq.png" alt="Speaker detail 4" style="object-position: 50% 90%;"></div>
               <figcaption><b>Simulation vs. measured</b>Still a work in progress! Waiting for materials to measure</figcaption>
             </figure>
           </div>
@@ -589,21 +661,25 @@
       <h3 class="small">Lines I worked on</h3>
       <div class="lines">
         <div class="line-card">
+          <div class="thumb"><img src="slides/slide-14.jpg" alt="Slide: Del Sol to Frontera" loading="lazy"></div>
           <h4>Del Sol to Frontera</h4>
           <p class="spec">AEP, 36 miles, 345 kV</p>
           <p>My first task: ran reports and completed two structure shifts, including autosagging, PI shifts, and wire-to-wire clearance checks.</p>
         </div>
         <div class="line-card">
+          <div class="thumb"><img src="slides/slide-10.jpg" alt="Slide: TTMP, Dyess 3 to Dyess 1" loading="lazy"></div>
           <h4>Dyess 3 to Dyess 1</h4>
           <p class="spec">AEP, Abilene, Texas</p>
           <p>Took lines from a DTLM edit to a full model: created specialized weather cases and zones, IKE data translation, ADSS, LiDAR tension matching, and structure analysis.</p>
         </div>
         <div class="line-card">
+          <div class="thumb"><img src="slides/slide-11.jpg" alt="Slide: TTMP, Dyess 1 to South Abilene" loading="lazy"></div>
           <h4>Dyess 1 to South Abilene</h4>
           <p class="spec">AEP, Abilene, Texas</p>
           <p>A connecting line with twice the structure count, plus creating distribution underbuilds, guy wires, and stub poles.</p>
         </div>
         <div class="line-card">
+          <div class="thumb"><img src="slides/slide-16.jpg" alt="Slide: E5/F6 MFAD" loading="lazy"></div>
           <h4>E5/F6 rebuild</h4>
           <p class="spec">National Grid, 67 miles, 711 structures</p>
           <p>Supported a 69 kV lattice to 115 kV steel monopole upgrade with GPR review and MFAD foundation inputs from extensive boring and soil data.</p>
@@ -619,6 +695,8 @@
 
   <section style="border-top:0">
     <div class="wrap deck">
+      <details class="deck-details">
+      <summary>Full end-of-co-op presentation (22 slides)</summary>
       <div class="deck-head">
         <div>
           <h2>End-of-co-op presentation</h2>
@@ -640,6 +718,35 @@
       </div>
       <div class="thumbs" id="thumbs" aria-label="Slide thumbnails"></div>
       </div>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-bottom:1.5rem">Leadership and other work</h2>
+      <div class="lines more-roles">
+        <div class="line-card">
+          <h4>Founder and President, Introduction to Engineering Club</h4>
+          <p class="spec">Ladue Horton Watkins High School, Aug 2022 to May 2024</p>
+          <p>Started a club that teaches engineering concepts to local middle schoolers, and built an ever-changing, hands-on curriculum for the 30+ students who came each week.</p>
+        </div>
+        <div class="line-card">
+          <h4>Youth Support Specialist, Variety the Children’s Charity</h4>
+          <p class="spec">April to August 2025</p>
+          <p>Provided direct care and support for children with disabilities at an inclusive camp, designing STEM and movement-based activities to build social and developmental skills.</p>
+        </div>
+        <div class="line-card">
+          <h4>Lifeguard, St. Louis Jewish Community Center</h4>
+          <p class="spec">April 2024 to August 2025</p>
+          <p>Kept swimmers safe, ran emergency response procedures including CPR and first aid, and handled routine safety and water chemistry testing to meet health codes.</p>
+        </div>
+        <div class="line-card">
+          <h4>Counselor, St. Louis Jewish Community Center</h4>
+          <p class="spec">April 2022 to April 2024</p>
+          <p>Led a group of 12 to 15 campers, planning each day’s activities around their development.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -649,17 +756,20 @@
         <h2 style="margin-bottom:2rem">Education</h2>
         <h3>Northeastern University</h3>
         <p class="when">B.S. in Mechanical Engineering, expected May 2028</p>
+        <!-- EDIT: use your exact GPA (for example 3.68), or delete this line -->
         <p><span class="label">GPA:</span> 3.7</p>
         <p><span class="label">Honors:</span> Dean’s Scholarship, COE Relocation Scholarship</p>
         <p><span class="label">Coursework:</span> Heat Transfer, Fluid Mechanics, Thermodynamics, Dynamics, Vibrations, Statics, Mechanics, Materials Science, Calculus 1–3, Physics 1–2, Chemistry, Cornerstone</p>
         <p><span class="label">Activities:</span> Music Production Club, ASME, Engineers Without Borders, Theme Park Engineering, EcoScholars, Green Line Records</p>
       </div>
       <div class="entry">
-        <h2 style="margin-bottom:2rem">Before WSP</h2>
-        <h3>Lifeguard</h3>
-        <p class="when" style="margin-bottom:1.5rem">Responsible for swimmer safety, staying alert and ready to respond.</p>
-        <h3>Counselor</h3>
-        <p class="when">Built interpersonal and leadership skills working in a supervision-based role.</p>
+        <h2 style="margin-bottom:2rem">Before Northeastern</h2>
+        <h3>Anatolia College, Thessaloniki, Greece</h3>
+        <p class="when">Northeastern’s NU.in international program</p>
+        <p>Started college abroad, including hands-on, physics-based lab work.</p>
+        <h3 style="margin-top:1.5rem">Ladue Horton Watkins High School, St. Louis</h3>
+        <p class="when">Graduated May 2024</p>
+        <p><span class="label">Honors:</span> National Honor Society, AP Scholar with Distinction, Engineering PLTW Pathway</p>
       </div>
     </div>
   </section>
@@ -773,6 +883,14 @@ SKILLS.forEach((c, i) => {
   cats.appendChild(b);
 });
 showCat(0);
+
+
+/* Demo video: plays silently as a preview; one tap restarts it with sound */
+const demo = document.getElementById("demoVid"), soundBtn = document.getElementById("soundBtn");
+if (demo && soundBtn) soundBtn.addEventListener("click", () => {
+  demo.muted = false; demo.loop = false; demo.controls = true; demo.currentTime = 0; demo.play();
+  soundBtn.remove();
+});
 
 /* Slideshow */
 const img = document.getElementById("slide-img"), stage = document.getElementById("stage");
